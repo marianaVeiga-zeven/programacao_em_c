@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <conio.h>
+#include <math.h>
+#include <string.h>
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
+
+    struct reg_pessoa{
+      char email[40];
+      char nome[30];
+      char tel[30];
+    };
+    struct reg_pessoa pessoa[10];
+    int i, achou;
+    char pesq[30];
+
+    for(i=0; i<10; i++){
+        printf("\nInforme o nome: ");
+        gets(pessoa[i].nome);
+        setbuf(stdin,NULL);
+        printf("Informe o telefone: ");
+        gets(pessoa[i].tel);
+        setbuf(stdin,NULL);
+        printf("Informe o email: ");
+        gets(pessoa[i].email);
+        setbuf(stdin,NULL);
+    }
+    while(1){
+     printf("\nInforme um nome p/ pesquisar: ");
+     gets(pesq);
+      if(strcmp(pesq,"fim") == 0)
+         break;
+     achou = 0;
+     i = 0;
+    while(i < 10 && !achou){
+        if(strcmp(pessoa[i].nome,pesq) == 0)
+            achou = 1;
+        else
+            i++;
+     }
+     if(achou)
+        printf("\nNome: %s \nTelefone: %s \nEmail: %s ",pesq, pessoa[i].tel,pessoa[i].email);
+     else
+        printf("\n%s não encontrado(a)!", pesq);
+    }
+    return 0;
+}
