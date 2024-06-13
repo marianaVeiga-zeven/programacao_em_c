@@ -1,0 +1,113 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <conio.h>
+#include <math.h>
+#include <string.h>
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");
+
+    struct amostras{
+    char sexo, est_civil[10], dependente[3];
+    float salario;
+    int idade;
+    };
+    struct amostras regiao1[5], regiao2[5], regiao3[5];
+    struct amostras aux;
+    int i, j;
+    printf("LEITURA REGIAO 1:");
+    for (i = 0; i < 5; i++) {
+        printf("\nInforme sexo (M/F): ");
+        scanf("%c",&regiao1[i].sexo);
+        setbuf(stdin,NULL);
+        printf("\nEstado Civil: ");
+        gets(regiao1[i].est_civil);
+        setbuf(stdin,NULL);
+        printf("\nInforme a idade: ");
+        scanf("%d",&regiao1[i].idade);
+        setbuf(stdin,NULL);
+        printf("\nInforme o salário: ");
+        scanf("%f",&regiao1[i].salario);
+        setbuf(stdin,NULL);
+        printf("\nÉ dependente (sim/nao)? ");
+        gets(regiao1[i].dependente);
+        setbuf(stdin,NULL);
+    }
+    printf("\nLEITURA REGIAO 2:");
+    for (i = 0; i < 5; i++) {
+        printf("\nInforme sexo (M/F): ");
+        scanf("%c",&regiao2[i].sexo);
+        setbuf(stdin,NULL);
+        printf("\nEstado Civil: ");
+        gets(regiao2[i].est_civil);
+        setbuf(stdin,NULL);
+        printf("\nInforme a idade: ");
+        scanf("%d",&regiao2[i].idade);
+        setbuf(stdin,NULL);
+        printf("\nInforme o salário: ");
+        scanf("%f",&regiao2[i].salario);
+        setbuf(stdin,NULL);
+        printf("\nÉ dependente (sim/nao)? ");
+        gets(regiao2[i].dependente);
+        setbuf(stdin,NULL);
+    }
+    printf("\nLEITURA REGIAO 3:");
+    for (i = 0; i < 5; i++) {
+        printf("\nInforme sexo (M/F): ");
+        scanf("%c",&regiao3[i].sexo);
+        setbuf(stdin,NULL);
+        printf("\nEstado Civil: ");
+        gets(regiao3[i].est_civil);
+        setbuf(stdin,NULL);
+        printf("\nInforme a idade: ");
+        scanf("%d",&regiao3[i].idade);
+        setbuf(stdin,NULL);
+        printf("\nInforme o salário: ");
+        scanf("%f",&regiao3[i].salario);
+        setbuf(stdin,NULL);
+        printf("\nÉ dependente (sim/nao)? ");
+        gets(regiao3[i].dependente);
+        setbuf(stdin,NULL);
+    }
+     for(i = 0; i < 4; i++){
+       for(j = i + 1; j < 5; j++){
+         if(regiao1[i].idade > regiao1[j].idade){
+            aux = regiao1[i];
+            regiao1[i] = regiao1[j];
+            regiao1[j] = aux;
+         }
+       }
+    }
+    for(i = 0; i < 4; i++){
+       for(j = i + 1; j < 5; j++){
+         if(regiao2[i].idade > regiao2[j].idade){
+            aux = regiao2[i];
+            regiao2[i] = regiao2[j];
+            regiao2[j] = aux;
+         }
+       }
+    }
+    for(i = 0; i < 4; i++){
+       for(j = i + 1; j < 5; j++){
+         if(regiao3[i].idade > regiao3[j].idade){
+            aux = regiao3[i];
+            regiao3[i] = regiao3[j];
+            regiao3[j] = aux;
+         }
+       }
+    }
+    printf("\nREGIÃO 1");
+    for (i = 0; i < 5; i++){
+        printf("\nSexo: %c Idade: %d Estado Civil: %s Salário: %.2f Dependente? %s", regiao1[i].sexo, regiao1[i].idade, regiao1[i].est_civil, regiao1[i].salario, regiao1[i].dependente);
+    }
+    printf("\nREGIÃO 2");
+    for (i = 0; i < 5; i++){
+        printf("\nSexo: %c Idade: %d Estado Civil: %s Salário: %.2f Dependente? %s", regiao2[i].sexo, regiao2[i].idade, regiao2[i].est_civil, regiao2[i].salario, regiao2[i].dependente);
+    }
+    printf("\nREGIÃO 3");
+    for (i = 0; i < 5; i++){
+        printf("\nSexo: %c Idade: %d Estado Civil: %s Salário: %.2f Dependente? %s", regiao3[i].sexo, regiao3[i].idade, regiao3[i].est_civil, regiao3[i].salario, regiao3[i].dependente);
+    }
+    return 0;
+}
